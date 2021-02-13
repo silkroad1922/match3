@@ -1,9 +1,3 @@
-cmake_minimum_required(VERSION 3.11) # FetchContent is available in 3.11+
-project(example)
-
-# Set this to the minimal version you want to support
-find_package(raylib 3.0 QUIET) # Let CMake search for a raylib-config.cmake
-
 # You could change the QUIET above to REQUIRED and remove this if() clause
 # This part downloads raylib and builds it if it's not installed on your system
 if (NOT raylib_FOUND) # If there's none, fetch and build raylib
@@ -28,10 +22,12 @@ if (NOT raylib_FOUND) # If there's none, fetch and build raylib
 
 endif()
 
-# This is the main part:
+project(match3)
+
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 add_executable(match3 src/main.cpp src/Balls.cpp src/Board.cpp)
-#set(raylib_VERBOSE 1)
-target_link_libraries(${PROJECT_NAME} raylib)
 
-# That's it! You should have an example executable that you can run. Have fun!
+target_link_libraries(match3 raylib)
+target_compile_options(match3 PRIVATE -Wall )
+target_include_directories(match3 PRIVATE ${raylib_SOURCE_DIRS}/include)
