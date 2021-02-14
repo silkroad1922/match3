@@ -1,7 +1,7 @@
 # match3
 Simple match3 game made with [raylib](https://www.raylib.com/)
 
-<img src="image_match3.jpeg"/>
+<img src="image_match3.jpg"/>
 
 
 ## Basic build instuctions 
